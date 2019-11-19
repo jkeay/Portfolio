@@ -1,0 +1,42 @@
+.center-landing {
+  margin: auto;
+  height: 100%;
+  width: fit-content;
+  opacity: 0;
+  transition: opacity 2s ease; }
+  .center-landing.visible {
+    opacity: 1; }
+  .center-landing .coffeeSvg {
+    margin-top: 10%;
+    height: 80%; }
+    .center-landing .coffeeSvg .st0 {
+      opacity: 0.3; }
+    .center-landing .coffeeSvg .st1 {
+      fill: #F7F6F2; }
+    .center-landing .coffeeSvg .st2 {
+      fill: #C9C8C5;
+      stroke: #000000;
+      stroke-miterlimit: 10; }
+    .center-landing .coffeeSvg .st3 {
+      fill: #6B5536; }
+    .center-landing .coffeeSvg .st4 {
+      opacity: 0.11; }
+    .center-landing .coffeeSvg .st5 {
+      fill: #59544F; }
+    .center-landing .coffeeSvg .st6 {
+      fill: none;
+      stroke: #FFFFFF;
+      stroke-width: 7.8288;
+      stroke-miterlimit: 10; }
+    .center-landing .coffeeSvg .st7 {
+      fill-opacity: 0.4; }
+    .center-landing .coffeeSvg .steamPath {
+      fill: #A69478;
+      stroke: #A69478;
+      stroke-width: 10;
+      stroke-miterlimit: 10;
+      opacity: 0;
+      transform: translate(40%, -10%);
+      transition: transform 4s ease-in-out, opacity 4s, ease-in-out; }
+  .center-landing .landing-quote {
+    font-size: 36px; }

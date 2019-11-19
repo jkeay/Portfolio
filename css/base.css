@@ -1,0 +1,406 @@
+nav {
+  height: 60px;
+  background-color: #27282B; }
+  nav .icon-button {
+    height: 60px;
+    width: 60px;
+    float: left; }
+    nav .icon-button .icon-logo {
+      fill: #FFFFFF;
+      height: 40px;
+      width: 60px;
+      padding: 10px 0px; }
+  nav .navList {
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    nav .navList li {
+      display: inline-block;
+      position: relative; }
+      nav .navList li a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        height: 60px;
+        line-height: 60px;
+        padding: 15px; }
+      nav .navList li:not(:hover) > .drop-down {
+        height: 0px; }
+    nav .navList .drop-down-caret {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: #FFFFFF;
+      text-align: center; }
+    nav .navList .drop-down {
+      overflow: hidden;
+      background-color: #32444E;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      z-index: 10;
+      transition: height 0.3s ease-in-out; }
+      nav .navList .drop-down li {
+        display: block; }
+        nav .navList .drop-down li a {
+          display: block;
+          font-size: 20px;
+          padding: 10px 10px 0 10px;
+          line-height: initial;
+          height: initial; }
+          nav .navList .drop-down li a:hover {
+            background-color: #26333a; }
+          nav .navList .drop-down li a:last-child {
+            padding-bottom: 10px; }
+    @media only screen and (max-width: 900px) {
+      nav .navList {
+        display: none; } }
+  nav .mobile-toggle {
+    display: none;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    background: none;
+    border: none;
+    outline: none;
+    float: right; }
+    @media only screen and (max-width: 900px) {
+      nav .mobile-toggle {
+        display: block; } }
+    nav .mobile-toggle span {
+      margin: auto;
+      display: block;
+      height: 4px;
+      width: 35px;
+      background-color: #FFFFFF; }
+    nav .mobile-toggle .burger-top {
+      transition: transform 0.3s ease-in-out;
+      transform: translate(0px, -8px); }
+    nav .mobile-toggle .burger-middle {
+      transition: transform 0.3s ease-in-out; }
+    nav .mobile-toggle .burger-bottom {
+      transition: transform 0.3s ease-in-out;
+      transform: translate(0px, 8px); }
+    nav .mobile-toggle.open .burger-top {
+      transform: translate(0px, 4px) rotate(45deg); }
+    nav .mobile-toggle.open .burger-middle {
+      transform: scaleX(0); }
+    nav .mobile-toggle.open .burger-bottom {
+      transform: translate(0px, -4px) rotate(-45deg); }
+
+nav {
+  height: 60px;
+  background-color: #27282B; }
+  nav .icon-button {
+    height: 60px;
+    width: 60px;
+    float: left; }
+    nav .icon-button .icon-logo {
+      fill: #FFFFFF;
+      height: 40px;
+      width: 60px;
+      padding: 10px 0px; }
+  nav .navList {
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    nav .navList li {
+      display: inline-block;
+      position: relative; }
+      nav .navList li a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        height: 60px;
+        line-height: 60px;
+        padding: 15px; }
+      nav .navList li:not(:hover) > .drop-down {
+        height: 0px; }
+    nav .navList .drop-down-caret {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: #FFFFFF;
+      text-align: center; }
+    nav .navList .drop-down {
+      overflow: hidden;
+      background-color: #32444E;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      z-index: 10;
+      transition: height 0.3s ease-in-out; }
+      nav .navList .drop-down li {
+        display: block; }
+        nav .navList .drop-down li a {
+          display: block;
+          font-size: 20px;
+          padding: 10px 10px 0 10px;
+          line-height: initial;
+          height: initial; }
+          nav .navList .drop-down li a:hover {
+            background-color: #26333a; }
+          nav .navList .drop-down li a:last-child {
+            padding-bottom: 10px; }
+    @media only screen and (max-width: 900px) {
+      nav .navList {
+        display: none; } }
+  nav .mobile-toggle {
+    display: none;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    background: none;
+    border: none;
+    outline: none;
+    float: right; }
+    @media only screen and (max-width: 900px) {
+      nav .mobile-toggle {
+        display: block; } }
+    nav .mobile-toggle span {
+      margin: auto;
+      display: block;
+      height: 4px;
+      width: 35px;
+      background-color: #FFFFFF; }
+    nav .mobile-toggle .burger-top {
+      transition: transform 0.3s ease-in-out;
+      transform: translate(0px, -8px); }
+    nav .mobile-toggle .burger-middle {
+      transition: transform 0.3s ease-in-out; }
+    nav .mobile-toggle .burger-bottom {
+      transition: transform 0.3s ease-in-out;
+      transform: translate(0px, 8px); }
+    nav .mobile-toggle.open .burger-top {
+      transform: translate(0px, 4px) rotate(45deg); }
+    nav .mobile-toggle.open .burger-middle {
+      transform: scaleX(0); }
+    nav .mobile-toggle.open .burger-bottom {
+      transform: translate(0px, -4px) rotate(-45deg); }
+
+.mobile-menu {
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  overflow: hidden;
+  height: 0px;
+  transition: height 0.5s ease-in-out;
+  background-color: #32444E; }
+  .mobile-menu.open {
+    height: 100%; }
+  .mobile-menu ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif; }
+    .mobile-menu ul li {
+      width: 100%;
+      position: relative; }
+      .mobile-menu ul li a, .mobile-menu ul li span {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 32px;
+        padding: 10px;
+        border-bottom: 2px solid #26333a;
+        width: 100%; }
+      .mobile-menu ul li .drop-down-caret {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        font-size: 56px;
+        color: #FFFFFF;
+        transition: transform 0.15s ease-in-out;
+        transform: rotate(0deg); }
+      .mobile-menu ul li .drop-down {
+        background-color: #26333a;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        max-height: 500px; }
+        .mobile-menu ul li .drop-down li {
+          border-bottom: 1px solid #27282B; }
+      .mobile-menu ul li:not(.open) .drop-down {
+        max-height: 0px; }
+      .mobile-menu ul li:not(.open) .drop-down-caret {
+        transform: rotate(-90deg); }
+
+body {
+  background-color: #FFFFFF;
+  position: absolute;
+  font-size: 16px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden; }
+  body .bodyContent {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    body .bodyContent .landing {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: url("../images/science_world_composition.jpg");
+      background-size: cover;
+      background-position: top;
+      background-attachment: scroll; }
+    body .bodyContent .title-heading {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box; }
+      @media only screen and (max-width: 1000px) {
+        body .bodyContent .title-heading {
+          padding: 10px 20px; } }
+    body .bodyContent h1 {
+      font-size: 92px;
+      font-family: 'Montserrat', sans-serif;
+      color: #FFFFFF;
+      font-size: 92px;
+      margin: 0;
+      font-weight: bolder; }
+      @media only screen and (max-width: 900px) {
+        body .bodyContent h1 {
+          font-size: 86px; } }
+      @media only screen and (max-width: 720px) {
+        body .bodyContent h1 {
+          font-size: 76px; } }
+      @media only screen and (max-width: 640px) {
+        body .bodyContent h1 {
+          font-size: 72px; } }
+      @media only screen and (max-width: 480px) {
+        body .bodyContent h1 {
+          font-size: 48px; } }
+      body .bodyContent h1.project-heading {
+        font-size: 38px; }
+        @media only screen and (max-width: 900px) {
+          body .bodyContent h1.project-heading {
+            font-size: 36px; } }
+        @media only screen and (max-width: 720px) {
+          body .bodyContent h1.project-heading {
+            font-size: 32px; } }
+        @media only screen and (max-width: 640px) {
+          body .bodyContent h1.project-heading {
+            font-size: 28px; } }
+        @media only screen and (max-width: 480px) {
+          body .bodyContent h1.project-heading {
+            font-size: 26px; } }
+    body .bodyContent h2 {
+      font-size: 42px;
+      margin: 0;
+      color: #FFFFFF; }
+      @media only screen and (max-width: 900px) {
+        body .bodyContent h2 {
+          font-size: 40px; } }
+      @media only screen and (max-width: 720px) {
+        body .bodyContent h2 {
+          font-size: 38px; } }
+      @media only screen and (max-width: 640px) {
+        body .bodyContent h2 {
+          font-size: 32px; } }
+      @media only screen and (max-width: 480px) {
+        body .bodyContent h2 {
+          font-size: 28px; } }
+      body .bodyContent h2.project-heading {
+        color: #27282B;
+        margin-top: 10px; }
+    body .bodyContent .project-step {
+      width: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 5px;
+      vertical-align: top; }
+      @media only screen and (max-width: 900px) {
+        body .bodyContent .project-step {
+          width: 100%;
+          margin-bottom: 20px; } }
+      body .bodyContent .project-step .project-subheading span {
+        font-size: 32px;
+        padding: 5px 5px 5px 7px;
+        color: #FFFFFF;
+        background-color: #27282B; }
+      body .bodyContent .project-step .project-subheading h3 {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 10px; }
+        @media only screen and (max-width: 900px) {
+          body .bodyContent .project-step .project-subheading h3 {
+            font-size: 24px; } }
+        @media only screen and (max-width: 720px) {
+          body .bodyContent .project-step .project-subheading h3 {
+            font-size: 24px; } }
+        @media only screen and (max-width: 640px) {
+          body .bodyContent .project-step .project-subheading h3 {
+            font-size: 20px; } }
+        @media only screen and (max-width: 480px) {
+          body .bodyContent .project-step .project-subheading h3 {
+            font-size: 18px; } }
+      body .bodyContent .project-step .project-image-shift {
+        margin-top: 38px; }
+        @media only screen and (max-width: 900px) {
+          body .bodyContent .project-step .project-image-shift {
+            margin: 0; } }
+    body .bodyContent h3 {
+      font-size: 30px;
+      font-weight: 100;
+      margin: 0; }
+      @media only screen and (max-width: 900px) {
+        body .bodyContent h3 {
+          font-size: 28px; } }
+      @media only screen and (max-width: 720px) {
+        body .bodyContent h3 {
+          font-size: 26px; } }
+      @media only screen and (max-width: 640px) {
+        body .bodyContent h3 {
+          font-size: 24px; } }
+      @media only screen and (max-width: 480px) {
+        body .bodyContent h3 {
+          font-size: 22px; } }
+    body .bodyContent .bannerInfo {
+      background-color: #238aac;
+      padding: 10px 20px;
+      transform: translate(0px, 0px);
+      transition: transform 1s ease-out;
+      color: #FFFFFF; }
+      body .bodyContent .bannerInfo.visible {
+        transform: translate(0px, -200px); }
+      body .bodyContent .bannerInfo .banner-header {
+        color: #FFFFFF; }
+  body .blocker {
+    width: 100%;
+    height: 100%; }
+
+img {
+  width: 100%; }
+  img.clickable-image {
+    cursor: pointer; }
+
+.float-content {
+  width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 1000px) {
+    .float-content {
+      width: 100%; }
+      .float-content h2 {
+        font-size: 20px; } }
+
+.padding {
+  padding: 20px; }
