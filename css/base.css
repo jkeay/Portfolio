@@ -18,7 +18,7 @@ nav {
     nav .navList li {
       display: inline-block;
       position: relative; }
-      nav .navList li a {
+      nav .navList li a, nav .navList li span {
         color: white;
         text-decoration: none;
         font-size: 24px;
@@ -111,7 +111,7 @@ nav {
     nav .navList li {
       display: inline-block;
       position: relative; }
-      nav .navList li a {
+      nav .navList li a, nav .navList li span {
         color: white;
         text-decoration: none;
         font-size: 24px;
@@ -268,8 +268,16 @@ body {
       @media only screen and (max-width: 1000px) {
         body .bodyContent .title-heading {
           padding: 10px 20px; } }
+    body .bodyContent .project-description {
+      margin: 5px 0; }
     body .bodyContent .bannerInfo h1 {
       display: inline-block; }
+    body .bodyContent .bannerInfo h2.project-heading {
+      color: #FFFFFF; }
+    body .bodyContent .bannerInfo p {
+      margin: 0; }
+      body .bodyContent .bannerInfo p:last-child {
+        margin-bottom: 10px; }
     body .bodyContent .bannerInfo a.source-code {
       float: right;
       background-color: #FFFFFF;
@@ -279,6 +287,10 @@ body {
       margin-top: 2px;
       border-radius: 2px;
       box-sizing: border-box; }
+      @media only screen and (max-width: 640px) {
+        body .bodyContent .bannerInfo a.source-code {
+          padding: 0px;
+          margin: 0px; } }
       body .bodyContent .bannerInfo a.source-code:hover {
         background-color: #fafafa;
         border: 2px solid #32444E;
@@ -345,7 +357,8 @@ body {
           font-size: 28px; } }
       body .bodyContent h2.project-heading {
         color: #27282B;
-        margin-top: 10px; }
+        margin-top: 10px;
+        margin-bottom: 10px; }
     body .bodyContent .project-step {
       width: 50%;
       display: inline-block;
@@ -416,7 +429,11 @@ body {
 img {
   width: 100%; }
   img.clickable-image {
-    cursor: pointer; }
+    cursor: pointer;
+    margin: 10px 0; }
+
+.project-step img.clickable-image {
+  margin: 0; }
 
 .float-content {
   width: 1000px;
@@ -429,4 +446,7 @@ img {
         font-size: 20px; } }
 
 .padding {
-  padding: 20px; }
+  padding: 0px; }
+  @media only screen and (max-width: 1000px) {
+    .padding {
+      padding: 20px; } }
