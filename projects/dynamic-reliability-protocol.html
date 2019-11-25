@@ -8,7 +8,7 @@ have services such as file transfers or media streaming. This protocol I've crea
     },
     <span class='string'>"body"</span>: &lt;DATA&gt;,
     <span class='string'>"lbody"</span>: &lt;LOWER QUALITY DATA (used in FEC)&gt;
-}</pre></div><div class="float-content padding project-process"><h2 class="project-heading">Reliability Types</h2><div class="project-step"><div class="project-subheading"><span>01</span><h3>RETRANSMISSION</h3></div><p>The first reliability type is the most straight forward as it resembles TCP. In this formation, DRP will have the server wait for a connection from a client, and then
+}</pre></div><div class="float-content padding project-process"><h2 class="project-heading">Reliability Types</h2><div class="project-step scroll-slider"><div class="project-subheading"><span>01</span><h3>RETRANSMISSION</h3></div><p>The first reliability type is the most straight forward as it resembles TCP. In this formation, DRP will have the server wait for a connection from a client, and then
 send the first data packet to the client. With this reliability the client must respond to the server with an ACK packet to allow the server to know the client received the file.
 In the case where a file was dropped (either the data packet or the acknowledgment) the server's socket will timeout and resend the same packet. I have included a
 parameter in order for the user to specify how many attempts this retransmission process can occur. Finally, once the client has received the entire file, the last packet will be
@@ -29,7 +29,7 @@ Total Duration: 3.176s
 Total Packets Dropped: 281
 Total Packets Sent: 2627
 PEC Attempts: 0
-------------------------------------</pre></div><div class="project-step"><div class="project-subheading"><span>02</span><h3>POST ERROR CORRECTION</h3></div><p>This is a play on the real time transfer protocol's FEC naming, where instead of correcting the error in advanced we perform the correction afterwards. So similarly to before,
+------------------------------------</pre></div><div class="project-step scroll-slider"><div class="project-subheading"><span>02</span><h3>POST ERROR CORRECTION</h3></div><p>This is a play on the real time transfer protocol's FEC naming, where instead of correcting the error in advanced we perform the correction afterwards. So similarly to before,
 the client will initiate the connection and the server will send packets. However, this time the client does not send ACK packets back to the server, this greatly speeds up
 the connection but has the client only receiving some of the data. Once the entire file has been transfers, the client will respond to the server with a bitmap which indicates
 which files need to be retransmitted. The process restarts until there are no files required to be sent. The attempts parameter from the previous protocol applies here as well.</p><pre class="code-box project-code-shift">------------------------------------
@@ -49,7 +49,7 @@ Total Duration: 0.042s
 Total Packets Dropped: 261
 Total Packets Sent: 2627
 PEC Attempts: 1
-------------------------------------</pre></div><div class="project-step"><div class="project-subheading"><span>03</span><h3>FORWARD ERROR CORRECTION</h3></div><p>The final reliability implemented is one used in the RTP protocol designed for the transfer of timely packets for media files. Due to some restrictions on this project this 
+------------------------------------</pre></div><div class="project-step scroll-slider"><div class="project-subheading"><span>03</span><h3>FORWARD ERROR CORRECTION</h3></div><p>The final reliability implemented is one used in the RTP protocol designed for the transfer of timely packets for media files. Due to some restrictions on this project this 
 protocol only works with text files and not audio or video files. The project could be enhanced to include those files as well. For this reliability type, the server will include
 2 versions of the data in each packet. One section will include high quality data and the second section includes lower quality data of the previous packet. This allows the client
 to retrieve the lower quality data of a packet if a packet gets dropped. There are a couple of advantages and downsides to this process. We don't require any retransmission, thus

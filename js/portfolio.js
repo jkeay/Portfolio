@@ -13367,17 +13367,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     var BackToTopButton = require('./views/backToTopButton');
 
+    var ScrollSlider = require('./views/scrollSlider');
+
     $(document).ready(onLoadPortfolio);
 
     function onLoadPortfolio() {
       var navbar = new NavbarView();
       var image = new ClickableImageView();
       var btt = new BackToTopButton();
+      var slider = new ScrollSlider();
     }
   }, {
     "./views/backToTopButton": 5,
     "./views/clickableImageView": 6,
-    "./views/navbarView": 7
+    "./views/navbarView": 7,
+    "./views/scrollSlider": 8
   }],
   5: [function (require, module, exports) {
     var Backbone = require('backbone');
@@ -13397,9 +13401,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         key: "initialize",
         value: function initialize() {
           this.showTopButtonDistance = 480;
-          this.bodyContent = $('.bodyContent');
+          this.bodyContent = $('.bodyContent, .landing');
           this.$el.click(this.onClickBackToTop.bind(this));
-          this.bodyContent.scroll(this.onBodyContentScroll.bind(this));
+          this.bodyContent.on('scroll', this.onBodyContentScroll.bind(this));
         }
       }, {
         key: "el",
@@ -13542,6 +13546,65 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }(Backbone.View);
 
     module.exports = NavbarView;
+  }, {
+    "backbone": 1
+  }],
+  8: [function (require, module, exports) {
+    var Backbone = require('backbone');
+
+    var ScrollSlider =
+    /*#__PURE__*/
+    function (_Backbone$View4) {
+      _inherits(ScrollSlider, _Backbone$View4);
+
+      function ScrollSlider() {
+        _classCallCheck(this, ScrollSlider);
+
+        return _possibleConstructorReturn(this, _getPrototypeOf(ScrollSlider).apply(this, arguments));
+      }
+
+      _createClass(ScrollSlider, [{
+        key: "initialize",
+        value: function initialize() {
+          this.registerOffscreenJquery();
+          this.bodyContent = $('.bodyContent, .landing');
+          this.bodyContent.scroll(this.onBodyContentScroll.bind(this));
+          this.onBodyContentScroll(); // check if element starts on screen to begin with
+        }
+      }, {
+        key: "el",
+        value: function el() {
+          return $('.scroll-slider');
+        }
+      }, {
+        key: "registerOffscreenJquery",
+        value: function registerOffscreenJquery() {
+          jQuery.expr.filters.offscreen = function (el) {
+            var bounds = el.getBoundingClientRect();
+            return bounds.x + bounds.width < 0 || bounds.y + bounds.height < 0 || bounds.x > bounds.innerWidth || bounds.y > window.innerHeight;
+          };
+        }
+      }, {
+        key: "onBodyContentScroll",
+        value: function onBodyContentScroll() {
+          var _this = this;
+
+          this.$el.each(function (i, el) {
+            el = $(el);
+            if (_this.isVisible(el)) el.addClass('visible');else el.removeClass('visible');
+          });
+        }
+      }, {
+        key: "isVisible",
+        value: function isVisible(el) {
+          return !el.is(':offscreen');
+        }
+      }]);
+
+      return ScrollSlider;
+    }(Backbone.View);
+
+    module.exports = ScrollSlider;
   }, {
     "backbone": 1
   }]
