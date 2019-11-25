@@ -8,9 +8,9 @@ have services such as file transfers or media streaming. This protocol I've crea
     },
     <span class='string'>"body"</span>: &lt;DATA&gt;,
     <span class='string'>"lbody"</span>: &lt;LOWER QUALITY DATA (used in FEC)&gt;
-}</pre></div><div class="float-content padding project-process"><h2 class="project-heading">Reliability Types</h2><div class="project-step"><div class="project-subheading"><span>01</span><h3>RETRANSMISSION</h3></div><p>The first reliability type is the most straight forward as it ressembles TCP. In this formation, DRP will have the server wait for a connection from a client, and then
-send the first data packet to the client. With this reliabilty the client must respond to the server with an ACK packet to allow the server to know the client received the file.
-In the case where a file was dropped (either the data packet or the acknowledgement) the server's socket will timeout and resend the same packet. I have included a
+}</pre></div><div class="float-content padding project-process"><h2 class="project-heading">Reliability Types</h2><div class="project-step"><div class="project-subheading"><span>01</span><h3>RETRANSMISSION</h3></div><p>The first reliability type is the most straight forward as it resembles TCP. In this formation, DRP will have the server wait for a connection from a client, and then
+send the first data packet to the client. With this reliability the client must respond to the server with an ACK packet to allow the server to know the client received the file.
+In the case where a file was dropped (either the data packet or the acknowledgment) the server's socket will timeout and resend the same packet. I have included a
 parameter in order for the user to specify how many attempts this retransmission process can occur. Finally, once the client has received the entire file, the last packet will be
 marked with "last" similar to a FIN packet in other protocols. This ends the transmission and the file should be 100% sent to the client.</p><pre class="code-box">------------------------------------
 LOG
@@ -29,9 +29,9 @@ Total Duration: 3.176s
 Total Packets Dropped: 281
 Total Packets Sent: 2627
 PEC Attempts: 0
-------------------------------------</pre></div><div class="project-step"><div class="project-subheading"><span>02</span><h3>POST ERROR CORRECTION</h3></div><p>This is a play on the realtime transfer protocol's FEC naming, where instead of correcting the error in advanced we perform the correction afterwards. So similarly to before,
-the client will initiate the connection and the server will send packets. However, this time the client does not send ACK packets back to the server - this greatly speeds up
-the connection but has the client only recieving some of the data. Once the entire file has been transfers, the client will respond to the server with a bitmap which indicates
+------------------------------------</pre></div><div class="project-step"><div class="project-subheading"><span>02</span><h3>POST ERROR CORRECTION</h3></div><p>This is a play on the real time transfer protocol's FEC naming, where instead of correcting the error in advanced we perform the correction afterwards. So similarly to before,
+the client will initiate the connection and the server will send packets. However, this time the client does not send ACK packets back to the server, this greatly speeds up
+the connection but has the client only receiving some of the data. Once the entire file has been transfers, the client will respond to the server with a bitmap which indicates
 which files need to be retransmitted. The process restarts until there are no files required to be sent. The attempts parameter from the previous protocol applies here as well.</p><pre class="code-box project-code-shift">------------------------------------
 LOG
 test.wav (42KB)
@@ -52,8 +52,8 @@ PEC Attempts: 1
 ------------------------------------</pre></div><div class="project-step"><div class="project-subheading"><span>03</span><h3>FORWARD ERROR CORRECTION</h3></div><p>The final reliability implemented is one used in the RTP protocol designed for the transfer of timely packets for media files. Due to some restrictions on this project this 
 protocol only works with text files and not audio or video files. The project could be enhanced to include those files as well. For this reliability type, the server will include
 2 versions of the data in each packet. One section will include high quality data and the second section includes lower quality data of the previous packet. This allows the client
-to retreive the lower quality data of a packet if a packet gets dropped. There are a couple of advantages and downsides to this process. We don't require any retransmission, thus
-the speed of this reliability type is much faster than the other 2 reliabilities. On the otherhand we have larger packets containing much more data, which would not only take longer
+to retrieve the lower quality data of a packet if a packet gets dropped. There are a couple of advantages and downsides to this process. We don't require any retransmission, thus
+the speed of this reliability type is much faster than the other 2 reliabilities. On the other hand we have larger packets containing much more data, which would not only take longer
 but also restrict how much high quality data we can include in a packet.</p><pre class="code-box">------------------------------------
 LOG
 high.txt (1KB)
@@ -72,8 +72,8 @@ Total Duration: 0.003s
 Total Packets Dropped: 63
 Total Packets Sent: 260
 PEC Attempts: 0
-------------------------------------</pre></div></div><div class="bannerInfo"><div class="float-content"><h2 class="project-heading">OUTCOME</h2><p>Each of the reliabilities provide their own benefits and disadvantages. One interesting point I found while testing was just how much faster the PEC reliability was over RETRANSMISSION.
+------------------------------------</pre></div></div><div class="bannerInfo"><div class="float-content"><h2 class="project-heading">OUTCOME</h2><p>Each of the reliabilities provides its own benefits and disadvantages. One interesting point I found while testing was just how much faster the PEC reliability was over RETRANSMISSION.
 Since retransmission requires the client to send an ACK packet every time it receives a piece of data, this not only increases the amount of packets being sent, but also increases the
-chances of a packet dropping because there are more packets to potentially drop. PEC on the otherhand will send all packets and then only retransmit packets that were dropped from the 
+chances of a packet dropping because there are more packets to potentially drop. PEC on the other hand will send all packets and then only retransmit packets that were dropped from the 
 previous attempt. Due to there being a larger chance of consecutive packets not being dropped, PEC greatly out performs the RETRANSMISSION reliability. However, in a future version of
 this program, the PEC method would require splitting the bitmap into multiple packets because larger file sizes end up hitting UPD's maximum packet size.</p></div></div></div><div class="mobile-menu"><ul class="navList"><li class="drop-down-container"><span>PROJECTS</span><i class="drop-down-caret fa fa-caret-down"></i><ul class="drop-down"><li><a href="https://jkeay.github.io/Portfolio/projects/jpg-encoder.html">JPG ENCODER</a></li><li><a href="https://jkeay.github.io/Portfolio/projects/chat-application.html">CHAT APPLICATION </a></li><li><a href="https://jkeay.github.io/Portfolio/projects/smtp-tls-client.html">SMTP TLS CLIENT </a></li><li><a href="https://jkeay.github.io/Portfolio/projects/dynamic-reliability-protocol.html">DYNAMIC RELIABILITY</a></li></ul></li><li><a href="https://jkeay.github.io/Portfolio/contact.html">CONTACT</a></li></ul></div><div class="image-modal"><div class="image-wrapper"><img><span class="close-modal">X</span></div></div><i class="back-to-top fa fa-arrow-circle-up"></i><footer></footer></body></html>
