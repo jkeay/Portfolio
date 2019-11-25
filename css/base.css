@@ -10,6 +10,8 @@ nav {
       height: 40px;
       width: 60px;
       padding: 10px 0px; }
+      nav .icon-button .icon-logo:hover {
+        background-color: #238aac; }
   nav .navList {
     float: right;
     list-style: none;
@@ -18,6 +20,8 @@ nav {
     nav .navList li {
       display: inline-block;
       position: relative; }
+      nav .navList li:hover {
+        background-color: #238aac; }
       nav .navList li a, nav .navList li span {
         color: white;
         text-decoration: none;
@@ -25,6 +29,10 @@ nav {
         height: 60px;
         line-height: 60px;
         padding: 15px; }
+        nav .navList li a:hover, nav .navList li span:hover {
+          background-color: #238aac; }
+      nav .navList li span {
+        cursor: default; }
       nav .navList li:not(:hover) > .drop-down {
         height: 0px; }
     nav .navList .drop-down-caret {
@@ -42,7 +50,8 @@ nav {
       margin: 0;
       position: absolute;
       z-index: 10;
-      transition: height 0.3s ease-in-out; }
+      transition: height 0.3s ease-in-out;
+      box-shadow: 2px 2px 5px #27282B; }
       nav .navList .drop-down li {
         display: block; }
         nav .navList .drop-down li a {
@@ -50,7 +59,8 @@ nav {
           font-size: 20px;
           padding: 10px 10px 0 10px;
           line-height: initial;
-          height: initial; }
+          height: initial;
+          white-space: nowrap; }
           nav .navList .drop-down li a:hover {
             background-color: #26333a; }
           nav .navList .drop-down li a:last-child {
@@ -103,6 +113,8 @@ nav {
       height: 40px;
       width: 60px;
       padding: 10px 0px; }
+      nav .icon-button .icon-logo:hover {
+        background-color: #238aac; }
   nav .navList {
     float: right;
     list-style: none;
@@ -111,6 +123,8 @@ nav {
     nav .navList li {
       display: inline-block;
       position: relative; }
+      nav .navList li:hover {
+        background-color: #238aac; }
       nav .navList li a, nav .navList li span {
         color: white;
         text-decoration: none;
@@ -118,6 +132,10 @@ nav {
         height: 60px;
         line-height: 60px;
         padding: 15px; }
+        nav .navList li a:hover, nav .navList li span:hover {
+          background-color: #238aac; }
+      nav .navList li span {
+        cursor: default; }
       nav .navList li:not(:hover) > .drop-down {
         height: 0px; }
     nav .navList .drop-down-caret {
@@ -135,7 +153,8 @@ nav {
       margin: 0;
       position: absolute;
       z-index: 10;
-      transition: height 0.3s ease-in-out; }
+      transition: height 0.3s ease-in-out;
+      box-shadow: 2px 2px 5px #27282B; }
       nav .navList .drop-down li {
         display: block; }
         nav .navList .drop-down li a {
@@ -143,7 +162,8 @@ nav {
           font-size: 20px;
           padding: 10px 10px 0 10px;
           line-height: initial;
-          height: initial; }
+          height: initial;
+          white-space: nowrap; }
           nav .navList .drop-down li a:hover {
             background-color: #26333a; }
           nav .navList .drop-down li a:last-child {
@@ -213,9 +233,9 @@ nav {
         width: 100%; }
       .mobile-menu ul li .drop-down-caret {
         position: absolute;
-        top: 0;
-        right: 5px;
-        font-size: 56px;
+        top: 9px;
+        right: 15px;
+        font-size: 40px;
         color: #FFFFFF;
         transition: transform 0.15s ease-in-out;
         transform: rotate(0deg); }
@@ -247,9 +267,12 @@ body {
     overflow-y: auto;
     position: absolute;
     top: 60px;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
     right: 0; }
+    body .bodyContent h1.contact-header {
+      color: #27282B;
+      margin-top: 20px; }
     body .bodyContent .landing {
       width: 100%;
       height: 100%;
@@ -270,6 +293,10 @@ body {
           padding: 10px 20px; } }
     body .bodyContent .project-description {
       margin: 5px 0; }
+    body .bodyContent .floating-arrow {
+      font-size: 36px;
+      color: #FFFFFF;
+      margin-bottom: 10px; }
     body .bodyContent .bannerInfo h1 {
       display: inline-block; }
     body .bodyContent .bannerInfo h2.project-heading {
@@ -278,6 +305,24 @@ body {
       margin: 0; }
       body .bodyContent .bannerInfo p:last-child {
         margin-bottom: 10px; }
+    body .bodyContent .bannerInfo ul.project-tags {
+      list-style: none;
+      padding: 0;
+      margin: 0 30px;
+      display: inline-block;
+      vertical-align: super; }
+      @media only screen and (max-width: 800px) {
+        body .bodyContent .bannerInfo ul.project-tags {
+          display: none; } }
+      body .bodyContent .bannerInfo ul.project-tags li {
+        display: inline;
+        font-style: italic;
+        border-radius: 1px;
+        margin-right: 10px;
+        padding: 2px 5px;
+        background-color: #FFFFFF;
+        font-size: 14px;
+        color: #27282B; }
     body .bodyContent .bannerInfo a.source-code {
       float: right;
       background-color: #FFFFFF;
@@ -292,9 +337,7 @@ body {
           padding: 0px;
           margin: 0px; } }
       body .bodyContent .bannerInfo a.source-code:hover {
-        background-color: #fafafa;
-        border: 2px solid #32444E;
-        padding: 0px; }
+        background-color: #fafafa; }
       body .bodyContent .bannerInfo a.source-code span {
         font-weight: bold;
         padding: 8px;
@@ -359,16 +402,34 @@ body {
         color: #27282B;
         margin-top: 10px;
         margin-bottom: 10px; }
+    body .bodyContent h2.contact-subheading {
+      color: #27282B;
+      font-size: 22px; }
+    body .bodyContent h3.social-media-header {
+      margin-top: 20px;
+      color: #27282B;
+      font-size: 16px;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      display: inline-block;
+      border-bottom: 1px solid #27282B; }
+    body .bodyContent .skills-heading {
+      color: #27282B; }
     body .bodyContent .project-step {
       width: 50%;
       display: inline-block;
       box-sizing: border-box;
-      padding: 5px;
-      vertical-align: top; }
+      vertical-align: top;
+      padding-top: 20px;
+      border-top: 1px solid black; }
+      body .bodyContent .project-step:nth-child(even) {
+        padding-right: 40px; }
       @media only screen and (max-width: 900px) {
         body .bodyContent .project-step {
           width: 100%;
-          margin-bottom: 20px; } }
+          padding-bottom: 20px; }
+          body .bodyContent .project-step:nth-child(even) {
+            padding-right: 0px; } }
       body .bodyContent .project-step .project-subheading span {
         font-size: 32px;
         padding: 5px 5px 5px 7px;
@@ -396,6 +457,11 @@ body {
         @media only screen and (max-width: 900px) {
           body .bodyContent .project-step .project-image-shift {
             margin: 0; } }
+      body .bodyContent .project-step .project-code-shift {
+        margin-top: 72px; }
+        @media only screen and (max-width: 900px) {
+          body .bodyContent .project-step .project-code-shift {
+            margin: 0; } }
     body .bodyContent h3 {
       font-size: 30px;
       font-weight: 100;
@@ -414,17 +480,57 @@ body {
           font-size: 22px; } }
     body .bodyContent .bannerInfo {
       background-color: #238aac;
-      padding: 10px 20px;
+      padding: 20px 20px;
       transform: translate(0px, 0px);
       transition: transform 1s ease-out;
       color: #FFFFFF; }
-      body .bodyContent .bannerInfo.visible {
-        transform: translate(0px, -200px); }
       body .bodyContent .bannerInfo .banner-header {
         color: #FFFFFF; }
+      body .bodyContent .bannerInfo.bannerWhite {
+        background-color: #FFFFFF;
+        color: #27282B; }
+      body .bodyContent .bannerInfo ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0; }
   body .blocker {
     width: 100%;
     height: 100%; }
+
+.split-text-image div {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  left: 0;
+  width: 70%; }
+  @media only screen and (max-width: 1000px) {
+    .split-text-image div {
+      width: 100%; } }
+
+.split-text-image .logo-image {
+  float: right;
+  display: inline-block;
+  position: relative;
+  right: 0;
+  width: 30%;
+  max-width: 128px;
+  fill: #FFFFFF; }
+  @media only screen and (max-width: 1000px) {
+    .split-text-image .logo-image {
+      display: block;
+      margin: auto;
+      width: 100%;
+      float: none; } }
+
+.parallax-image {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 512px; }
+
+#bear-creak-park {
+  background-image: url("../images/bear_creek_park.jpg"); }
 
 .center {
   width: 100%;
@@ -458,3 +564,161 @@ img {
   @media only screen and (max-width: 1000px) {
     .padding {
       padding: 20px; } }
+
+.contact-image {
+  width: 256px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #27282B; }
+
+.project-image-half {
+  width: 50%;
+  max-width: 640px; }
+  @media only screen and (max-width: 900px) {
+    .project-image-half {
+      width: 100%; } }
+
+.project-process {
+  margin-bottom: 20px; }
+
+.margin-top {
+  margin-top: 50px; }
+
+.social-media-list {
+  font-size: 42px;
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .social-media-list li {
+    display: inline-block; }
+    .social-media-list li a {
+      color: #27282B;
+      margin: 10px; }
+      .social-media-list li a:hover {
+        color: #238aac; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #27282B; }
+
+.back-to-top {
+  position: absolute;
+  bottom: 40px;
+  right: 30px;
+  font-size: 48px;
+  color: #27282B;
+  cursor: pointer;
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  text-align: center; }
+  .back-to-top:hover {
+    color: #238aac; }
+  .back-to-top.visible {
+    display: block; }
+
+.title-hover {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transition: height 1s ease-in-out; }
+  .title-hover.collapse {
+    height: 85%; }
+
+.image-modal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: none; }
+  .image-modal.visible {
+    display: block; }
+  .image-modal .image-wrapper {
+    position: relative;
+    display: block;
+    max-width: 1280px;
+    margin: auto;
+    top: 50%;
+    transform: translate(0, -50%); }
+    .image-modal .image-wrapper img {
+      max-width: 100%; }
+    .image-modal .image-wrapper .close-modal {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 28px;
+      line-height: 40px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background-color: #27282B;
+      border-radius: 50%;
+      cursor: pointer; }
+      .image-modal .image-wrapper .close-modal:hover {
+        background-color: #878787; }
+
+.extended-footer {
+  background-color: #27282B;
+  color: #FFFFFF;
+  padding: 20px; }
+  .extended-footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid #FFFFFF; }
+    .extended-footer a:hover {
+      background-color: white;
+      color: #27282B; }
+  .extended-footer span {
+    float: right; }
+
+.title-reversed {
+  display: inline-block;
+  font-size: 32px;
+  padding: 5px 10px;
+  color: #FFFFFF;
+  background-color: #27282B; }
+
+.code-box {
+  padding: 5px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid #b9b9b9;
+  background-color: #f0f0f0;
+  color: #27282B;
+  white-space: pre-wrap; }
+  .code-box span.string {
+    color: #967de6; }
+
+.content-left, .content-right {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px 0; }
+  .content-left img, .content-right img {
+    vertical-align: middle;
+    max-width: 256px; }
+  @media only screen and (max-width: 1000px) {
+    .content-left, .content-right {
+      width: 100%; } }
+
+.content-right {
+  text-align: right; }
+  @media only screen and (max-width: 1000px) {
+    .content-right {
+      text-align: center; } }

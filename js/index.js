@@ -13368,8 +13368,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     function onLoadIndex() {
       new IndexView();
       var bannerInfo = $('.bannerInfo');
+      var hoveringTitle = $('.title-hover');
       setTimeout(function () {
-        bannerInfo.addClass('visible');
+        //bannerInfo.addClass('visible');
+        hoveringTitle.addClass('collapse');
       }, 1500);
     }
   }, {

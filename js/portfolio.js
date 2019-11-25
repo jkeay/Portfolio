@@ -13365,23 +13365,76 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     var ClickableImageView = require('./views/clickableImageView');
 
+    var BackToTopButton = require('./views/backToTopButton');
+
     $(document).ready(onLoadPortfolio);
 
     function onLoadPortfolio() {
       var navbar = new NavbarView();
       var image = new ClickableImageView();
+      var btt = new BackToTopButton();
     }
   }, {
-    "./views/clickableImageView": 5,
-    "./views/navbarView": 6
+    "./views/backToTopButton": 5,
+    "./views/clickableImageView": 6,
+    "./views/navbarView": 7
   }],
   5: [function (require, module, exports) {
     var Backbone = require('backbone');
 
-    var ClickableImageView =
+    var BackToTopButton =
     /*#__PURE__*/
     function (_Backbone$View) {
-      _inherits(ClickableImageView, _Backbone$View);
+      _inherits(BackToTopButton, _Backbone$View);
+
+      function BackToTopButton() {
+        _classCallCheck(this, BackToTopButton);
+
+        return _possibleConstructorReturn(this, _getPrototypeOf(BackToTopButton).apply(this, arguments));
+      }
+
+      _createClass(BackToTopButton, [{
+        key: "initialize",
+        value: function initialize() {
+          this.showTopButtonDistance = 480;
+          this.bodyContent = $('.bodyContent');
+          this.$el.click(this.onClickBackToTop.bind(this));
+          this.bodyContent.scroll(this.onBodyContentScroll.bind(this));
+        }
+      }, {
+        key: "el",
+        value: function el() {
+          return $('.back-to-top');
+        }
+      }, {
+        key: "onClickBackToTop",
+        value: function onClickBackToTop() {
+          this.bodyContent.animate({
+            scrollTop: 0
+          }, 'slow');
+          ;
+        }
+      }, {
+        key: "onBodyContentScroll",
+        value: function onBodyContentScroll() {
+          if (!this.$el.hasClass('visible') && this.bodyContent.scrollTop() >= this.showTopButtonDistance) this.$el.addClass('visible');else if (this.$el.hasClass('visible') && this.bodyContent.scrollTop() < this.showTopButtonDistance) this.$el.removeClass('visible');
+        }
+      }]);
+
+      return BackToTopButton;
+    }(Backbone.View);
+
+    module.exports = BackToTopButton;
+  }, {
+    "backbone": 1
+  }],
+  6: [function (require, module, exports) {
+    var Backbone = require('backbone');
+
+    var ClickableImageView =
+    /*#__PURE__*/
+    function (_Backbone$View2) {
+      _inherits(ClickableImageView, _Backbone$View2);
 
       function ClickableImageView() {
         _classCallCheck(this, ClickableImageView);
@@ -13392,7 +13445,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       _createClass(ClickableImageView, [{
         key: "initialize",
         value: function initialize() {
+          this.imageModal = $('.image-modal');
+          this.imageModalImg = $('.image-modal img');
           $('img.clickable-image').click(this.onClickImage.bind(this));
+          $('.close-modal').click(this.closeModal.bind(this));
+          $('.image-modal').click(this.closeModal.bind(this));
         }
       }, {
         key: "el",
@@ -13403,6 +13460,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         key: "onClickImage",
         value: function onClickImage(event) {
           var image = $(event.currentTarget);
+          var url = image.attr('src');
+
+          if (url != undefined) {
+            this.imageModalImg.attr('src', url);
+            this.imageModal.addClass('visible');
+          }
+        }
+      }, {
+        key: "closeModal",
+        value: function closeModal() {
+          this.imageModal.removeClass('visible');
         }
       }]);
 
@@ -13413,13 +13481,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }, {
     "backbone": 1
   }],
-  6: [function (require, module, exports) {
+  7: [function (require, module, exports) {
     var Backbone = require('backbone');
 
     var NavbarView =
     /*#__PURE__*/
-    function (_Backbone$View2) {
-      _inherits(NavbarView, _Backbone$View2);
+    function (_Backbone$View3) {
+      _inherits(NavbarView, _Backbone$View3);
 
       function NavbarView() {
         _classCallCheck(this, NavbarView);
